@@ -1,9 +1,9 @@
 node {
-
+	def rootdir="/home/ubuntu"
 
 	stage ('Loading pipelines scripts '){
-		chckout scm 
+		checkout scm 
 		common=load "${rootdir}/exp/Common.groovy"
 }
-
+}
 
