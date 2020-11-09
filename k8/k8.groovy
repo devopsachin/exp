@@ -1,5 +1,5 @@
 node {
-
+	def rootdir="/home/ubunut"
 
 	stage ('Loading pipelines scripts '){
 		checkout scm 
