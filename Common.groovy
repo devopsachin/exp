@@ -21,4 +21,51 @@ def addrepo(def filename, def path){
 def upgrade (){
  	sh """sudo apt-get update"""
 }
+
+def docker(){
+	sh """ sudo apt-get install docker.io """
+}
+
+def docker-start(){
+	sh """sudo systemctl enable docker"""
+
+}
+def docker-start(){
+	sh """ sudo systemctl start docker"""
+}
+
+def addkey(){
+	sh """ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add """
+}
+
+def curl-wget(){
+	sh """ sudo apt-get install curl -y """
+}
+def addrepo(){
+	sh """sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main" """
+}
+
+def kubctl(){
+	sh """ sudo apt-get install kubeadm kubelet kubectl -y"""
+	sh """ sudo apt-mark hold kubeadm kubelet kubectl"""
+}
+
+def hostname(def hostname){
+	sh """ sudo hostnamectl set-hostname ${hostname}"""
+}
+
+def addnode(){
+	sh """ sudo kubeadm init --pod-network-cidr=10.244.0.0/16"""
+}
+
+def kubfinal(){
+	sh """mkdir -p $HOME/.kube """
+	sh """ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config """
+	sh """sudo chown $(id -u):$(id -g) $HOME/.kube/config"""
+}
+
+def pod(){
+	sh """sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml """
+}
+
 return this 

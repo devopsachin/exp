@@ -42,5 +42,9 @@ node {
 	stage ('finalizing kubernetes'){
 		common.kubfinal()
 }
+
+	stage ('deploying pod n/w'){
+		common.pod()
+}
 }
 
