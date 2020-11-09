@@ -14,14 +14,14 @@ node {
 		common.docker()
 }
 	stage ('enable docker'){
-		common.docker-enable()
+		common.docker_enable()
 }
 	stage ('start docker'){
-		common.docker-start()
+		common.docker_start()
 }
 
 	stage ('installing curl and wget'){
-		common.curl-wget()
+		common.curl_wget()
 }
 	stage ('preparing prerequsites for kub adding key'){
                 common.addkey()
