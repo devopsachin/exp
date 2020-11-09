@@ -61,7 +61,7 @@ def addnode(){
 def kubfinal(){
 	sh 'mkdir -p $HOME/.kube'
 	sh 'sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config '
-	sh 'sudo chown $(id -u):$(id -g) $HOME/.kube/config'
+	sh 'sudo chown 0:0 /root/.kube/config'
 }
 
 def pod(){
