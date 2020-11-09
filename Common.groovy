@@ -26,11 +26,11 @@ def docker(){
 	sh """ sudo apt-get install docker.io """
 }
 
-def docker-enable(){
+def docker_enable(){
 	sh """sudo systemctl enable docker"""
 
 }
-def docker-start(){
+def docker_start(){
 	sh """ sudo systemctl start docker"""
 }
 
@@ -38,7 +38,7 @@ def addkey(){
 	sh """ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add """
 }
 
-def curl-wget(){
+def curl_wget(){
 	sh """ sudo apt-get install curl -y """
 }
 def addrepo(){
@@ -59,9 +59,9 @@ def addnode(){
 }
 
 def kubfinal(){
-	sh """mkdir -p $HOME/.kube """
-	sh """ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config """
-	sh """sudo chown $(id -u):$(id -g) $HOME/.kube/config"""
+	sh 'mkdir -p $HOME/.kube'
+	sh 'sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config '
+	sh 'sudo chown $(id -u):$(id -g) $HOME/.kube/config'
 }
 
 def pod(){
