@@ -19,5 +19,4 @@ def addrepo(def filename, def path){
 	sh """ echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee $path/$filename"""
 }
 
-def 
 return this 
