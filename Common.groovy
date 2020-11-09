@@ -26,7 +26,7 @@ def docker(){
 	sh """ sudo apt-get install docker.io """
 }
 
-def docker-start(){
+def docker-enable(){
 	sh """sudo systemctl enable docker"""
 
 }
