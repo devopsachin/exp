@@ -67,5 +67,8 @@ def kubfinal(){
 def pod(){
 	sh """sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml """
 }
+def nothing(){
+	sh """echo $HOME"""
+}
 
 return this 
