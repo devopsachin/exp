@@ -51,5 +51,8 @@ node {
 	stage ('deploying pod n/w'){
 		common.pod()
 }
+	stage ('finalizing stage'){
+		common.getpod(hostname)
+}
 }
 
