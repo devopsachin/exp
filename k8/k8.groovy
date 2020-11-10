@@ -1,6 +1,6 @@
 node {
 	def rootdir="/home/ubuntu"
-	def hostname="master-node"
+	def hostname="${hostname}"
 
 	stage ('Loading pipelines scripts '){
 		checkout scm 
