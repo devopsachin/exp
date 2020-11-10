@@ -59,8 +59,8 @@ def addnode(){
 }
 
 def kubfinal(){
-	sh 'mkdir -p $HOME/.kube'
-	sh 'sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config '
+	sh 'mkdir -p /root/.kube'
+	sh 'sudo cp -i /etc/kubernetes/admin.conf /root/.kube/config '
 	sh 'sudo chown 0:0 /root/.kube/config'
 }
 
