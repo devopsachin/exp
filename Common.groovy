@@ -84,7 +84,8 @@ def createInstance(def Instanceid){
 	   '''
 }
 def ssh(){
-	sh ''' 
+	sh ''' 	
+		sleep 15
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
 		Ip=$(sudo aws ec2 describe-instances --instance-ids=$Instanceid  --query 'Reservations[*].Instances[*].{Instance:PublicIpAddress}')
 		sudo ssh -o "StrictHostKeyChecking no" -i "/tmp/atos.pem" ubuntu@$Ip
