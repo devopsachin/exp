@@ -7,6 +7,9 @@ node {
 	def rootdir="/home/ubuntu"
 	def hostname="${hostname}"
 
+	stage ('Logining to AWS account'}{
+		common.login()
+}
 	stage ('Loading pipelines scripts '){
 		checkout scm 
 		common=load "${rootdir}/exp/Common.groovy"
