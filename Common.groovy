@@ -87,7 +87,7 @@ def ssh(){
 	sh ''' 
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
 		Ip=$(sudo aws ec2 describe-instances --instance-ids=$Instanceid  --query 'Reservations[*].Instances[*].{Instance:PublicIpAddress}')
-		ssh -i "/home/ubunut/exp/k8/atos.pem" ubunut@$Ip
+		sudo ssh -i "/home/ubunut/exp/k8/atos.pem" ubunut@$Ip
 	   '''
 }
 
