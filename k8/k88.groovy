@@ -21,6 +21,6 @@ node {
 		common.createInstance(Instanceid)
 }
 	stage ('ssh to newly created vm'){
-		common.ssh
+		common.ssh()
 }
 }
