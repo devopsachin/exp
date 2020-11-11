@@ -75,7 +75,7 @@ def getpod(def hostname){
 def loginaws(){
 	sh """ sudo aws sts get-caller-identity """
 }
-def createInstance(def Instanceid){
+def createInstance(){
 	sh """ sudo aws ec2 run-instances --image-id ami-0a4a70bd98c6d6441 --count 1 --instance-type t2.medium --key-name atos --security-group-ids sg-cf6543ab --subnet-id subnet-4a020d22  > /tmp/instance.id """
 	sh ' Instanceid=$(cat /tmp/any.txt | awk '{print $9}')'
 	sh 'sudo aws ec2 create-tags --resources $Instanceid --tags Key=Name,Value=Petclinic '
