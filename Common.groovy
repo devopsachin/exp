@@ -67,7 +67,7 @@ def kubfinal(){
 def pod(){
 	sh """sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml """
 }
-def getpod(){
+def getpod(def hostname){
 	sh """kubectl get pods --all-namespaces"""
 	sh """kubectl taint nodes --all node-role.kubernetes.io/${hostname}"""
 }
