@@ -87,7 +87,7 @@ def ssh(){
 	sh ''' 
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
 		Ip=$(sudo aws ec2 describe-instances --instance-ids=$Instanceid  --query 'Reservations[*].Instances[*].{Instance:PublicIpAddress}')
-		sudo ssh -i "tmp/atos.pem" ubunut@$Ip
+		sudo ssh -i -o "StrictHostKeyChecking no" "/tmp/atos.pem" ubunut@$Ip
 	   '''
 }
 
