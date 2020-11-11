@@ -81,7 +81,6 @@ def createInstance(def Instanceid){
 	sh '''  
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
 		sudo aws ec2 create-tags --resources $Instanceid --tags Key=Name,Value=Petclinic 
-		sudo > tmp/instance.id
 	   '''
 
 }
