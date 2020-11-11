@@ -7,7 +7,7 @@ node {
 	
         def rootdir="/home/ubuntu"
         def hostname="${hostname}"
-
+	def Instanceid
         
         stage ('Loading pipelines scripts '){
                 checkout scm
@@ -18,6 +18,6 @@ node {
 }
 
 	stage ('creat vm in aws '){
-		common.createInstance()
+		common.createInstance(Instanceid)
 }
 }
