@@ -88,10 +88,10 @@ def ssh(){
 		sleep 15
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
 		Ip=$(sudo aws ec2 describe-instances --instance-ids=$Instanceid  --query 'Reservations[*].Instances[*].{Instance:PublicIpAddress}')
-		sudo ssh -o "StrictHostKeyChecking no" -i "/tmp/atos.pem" ubuntu@$Ip 
-		sudo scp -i "/tmp/atos.pem" /tmp/remotescript.sh ubuntu@$Ip:/tmp
-		 
 		
+		sudo scp -i "/tmp/atos.pem" /tmp/remotescript.sh ubuntu@$Ip:/tmp
+		sudo ssh -o "StrictHostKeyChecking no" -i "/tmp/atos.pem" ubuntu@$Ip 'bash -s' < /tmp/remotescript.sh
+		 	
 	   '''
 }
 
