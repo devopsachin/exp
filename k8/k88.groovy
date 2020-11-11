@@ -8,7 +8,7 @@ node {
         def hostname="${hostname}"
 	def Instanceid
 
-        stage ('Logining to AWS account'}{
+        stage ('Logining to AWS account'){
                 common.loginaws()
 }
         stage ('Loading pipelines scripts '){
