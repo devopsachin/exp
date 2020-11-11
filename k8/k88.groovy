@@ -4,9 +4,9 @@ import groovy.json.JsonBuilder
 
 
 node {
+	
         def rootdir="/home/ubuntu"
         def hostname="${hostname}"
-	def Instanceid
 
         
         stage ('Loading pipelines scripts '){
@@ -18,6 +18,6 @@ node {
 }
 
 	stage ('creat vm in aws '){
-		common.createInstance(Instanceid)
+		common.createInstance()
 }
 }
