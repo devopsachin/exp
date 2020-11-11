@@ -82,6 +82,7 @@ def createInstance(def Instanceid){
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
 		sudo aws ec2 create-tags --resources $Instanceid --tags Key=Name,Value=Petclinic 
 	   '''
+}
 def ssh(){
 	sh ''' 
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
