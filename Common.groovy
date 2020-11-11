@@ -77,7 +77,7 @@ def loginaws(){
 }
 def createInstance(def Instanceid){
 	sh """ sudo rm -rf /tmp/any.txt && sudo touch /tmp/any.txt"""
-	sh """ sudo aws ec2 run-instances --image-id ami-0a4a70bd98c6d6441 --count 1 --instance-type t2.medium --key-name atos --security-group-ids sg-cf6543ab --subnet-id subnet-4a020d22  > /tmp/any.txt """
+	sh ''' sudo aws ec2 run-instances --image-id ami-0a4a70bd98c6d6441 --count 1 --instance-type t2.medium --key-name atos --security-group-ids sg-cf6543ab --subnet-id subnet-4a020d22  >> /tmp/any.txt '''
 	sh """ sleep 15"""
 	sh '''  
 		Instanceid=$(cat /tmp/any.txt | awk '{print $9}')
