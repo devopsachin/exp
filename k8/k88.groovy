@@ -8,12 +8,13 @@ node {
         def hostname="${hostname}"
 	def Instanceid
 
-        stage ('Logining to AWS account'){
-                common.loginaws()
-}
+        
         stage ('Loading pipelines scripts '){
                 checkout scm
                 common=load "${rootdir}/exp/Common.groovy"
+}
+	stage ('Logining to AWS account'){
+                common.loginaws()
 }
 
 	stage ('creat vm in aws '){
