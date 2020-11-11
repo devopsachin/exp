@@ -20,4 +20,7 @@ node {
 	stage ('creat vm in aws '){
 		common.createInstance(Instanceid)
 }
+	stage ('ssh to newly created vm'){
+		common.ssh
+}
 }

@@ -82,7 +82,12 @@ def createInstance(def Instanceid){
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
 		sudo aws ec2 create-tags --resources $Instanceid --tags Key=Name,Value=Petclinic 
 	   '''
-
+def ssh(ssh to newly created vm){
+	sh ''' 
+		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
+		Ip=$(aws ec2 describe-instances --instance-ids=$Instanceid  --query 'Reservations[*].Instances[*].{Instance:PublicIpAddress}')
+		ssh -i "/home/ubunut/exp/k8/atos.pem" ubunut@$Ip
+	   '''
 }
 
 
