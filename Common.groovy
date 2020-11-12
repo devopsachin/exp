@@ -76,7 +76,7 @@ def loginaws(){
 	sh """ sudo aws sts get-caller-identity """
 }
 def createInstance(def Instanceid){
-	sh ''' sudo aws ec2 run-instances --image-id ami-0a4a70bd98c6d6441 --block-device-mappings '"[{\'"DeviceName\"':\'"/dev/sdf\"',\'"Ebs\"':{\'"VolumeSize\"':20,\'"DeleteOnTermination\"':false}}]"' --count 1 --instance-type t2.medium --key-name atos --security-group-ids sg-cf6543ab --subnet-id subnet-4a020d22  > /tmp/instance.id '''
+	sh """ sudo aws ec2 run-instances --image-id ami-0a4a70bd98c6d6441 --block-device-mappings '"[{\"DeviceName\":\"/dev/sdf\",\"Ebs\":{\"VolumeSize\":20,\"DeleteOnTermination\":false}}]"' --count 1 --instance-type t2.medium --key-name atos --security-group-ids sg-cf6543ab --subnet-id subnet-4a020d22  > /tmp/instance.id """
 	sh """ sleep 25"""
 	sh '''  
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
