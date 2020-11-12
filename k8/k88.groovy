@@ -23,4 +23,7 @@ node {
 	stage ('ssh to newly created vm'){
 		common.ssh()
 }
+	stage ('print access URL'){
+		common.print()
+	}
 }
