@@ -98,7 +98,7 @@ def print(){
 	sh ''' 
 		Instanceid=$(cat /tmp/instance.id | awk 'FNR==2 {print $9}')
 		Ip=$(sudo aws ec2 describe-instances --instance-ids=$Instanceid  --query 'Reservations[*].Instances[*].{Instance:PublicIpAddress}')
-		echo Ip:30205
+		echo $Ip:30205
 	'''
 }
 
