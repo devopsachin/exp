@@ -94,6 +94,12 @@ def ssh(){
 		 	
 	   '''
 }
+def print(){
+	sh '''
+		Ip=$(sudo aws ec2 describe-instances --instance-ids=$Instanceid  --query 'Reservations[*].Instances[*].{Instance:PublicIpAddress}')
+		echo Ip:30205
+	'''
+}
 
 
 return this 
