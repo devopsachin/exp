@@ -26,4 +26,3 @@ node {
 	stage ('print access URL'){
 		common.print()
 	}
-}
